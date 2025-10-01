@@ -21,7 +21,6 @@
       <ul class="navbar-nav">
         <?php
           if(isset($_SESSION['user'])){
-            
         ?>
           <li class="nav-item">
             <a class="nav-link" href="/deconnexion">Se déconnecter</a>
@@ -38,6 +37,10 @@
         <?php
         }
         ?>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/ajoutCommit">Ajouter un Commit</a>
+        </li>
       </ul>
     </div>
   </div>
