@@ -16,7 +16,6 @@ class Database
                 "root",
                 "admin"
             );
-            var_dump("BDD");
             //echo "Connexion réussie ✅";
 
         } catch (Exception $e) {
