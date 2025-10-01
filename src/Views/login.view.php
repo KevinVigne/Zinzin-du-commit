@@ -1,13 +1,12 @@
-
-<?php 
-require_once(__DIR__ . '/partials/head.view.php');
+<?php
+require_once(__DIR__ . "/partials/head.view.php");
 ?>
-<h1 class="d-flex justify-content-center">Connexion</h1>
+<h1>Connexion</h1>
 <form method="POST">
     <div class="container">
         <div class="form-group">
             <label for="email" class="form-label">Donne moi ton email :</label>
-            <input type="email" name="email" id="email" placeholder="exemple@gmail.com" class="form-control">
+            <input type="email" name="email" id="email" placeholder="Toto@gmail.com" class="form-control">
             <?php 
                 if(isset($this->arrayError['email'])){
                     ?>
@@ -17,7 +16,7 @@ require_once(__DIR__ . '/partials/head.view.php');
             ?>
         </div>
         <div class="form-group">
-            <label for="password" class="form-label">Donne moi ton mot de pase :</label>
+            <label for="password" class="form-label">Donne moi ton mot de passe :</label>
             <input type="password" name="password" id="password" class="form-control">
             <?php 
                 if(isset($this->arrayError['password'])){
@@ -27,10 +26,9 @@ require_once(__DIR__ . '/partials/head.view.php');
                 }
             ?>
         </div>
-        <button type="submit" name = "login" class="btn btn-success mt-5 ">Connexion</button>
+        <button type="submit" name="login" class="btn btn-success mt-5">Connexion</button>
     </div>
 </form>
-
-<?php 
-require_once(__DIR__ . '/partials/footer.view.php');
+<?php
+require_once(__DIR__ . "/partials/footer.view.php");
 ?>
