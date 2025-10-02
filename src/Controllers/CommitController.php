@@ -24,7 +24,27 @@ class CommitController extends AbstractController
             }
             require_once(__DIR__ . "/../Views/addCommit.view.php");
         }else{
-            $this->redirectToRoute('/',301);
+            $this->redirectToRoute('/',302);
+        }
+    }
+
+
+    //afficher un commit par l'id s'il existe
+    public function commit()
+    {
+        if(isset($_GET['id'])){
+            $id = htmlspecialchars($_GET['id']);
+            $commit = new Commit($id, null, null, null, null, null, null, null, null, null, null);
+            $myCommit = $commit->getCommitById();
+
+            if($myCommit)
+            {
+                require_once(__DIR__ . "/../Views/commit.view.php");
+            }else{
+                $this->redirectToRoute('/', 302);
+            }
+        }else{
+            $this->redirectToRoute('/', 302);
         }
     }
 }
