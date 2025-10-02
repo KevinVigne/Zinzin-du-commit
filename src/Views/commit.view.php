@@ -12,5 +12,6 @@ require_once(__DIR__ . "/partials/head.view.php");
     }
 ?>
 <?php echo  $myCommit->getModificationDate() ? "<p>Date de modification " . $myCommit->getModificationDate() . "</p>" : "" ?>
+<a href="/modifier?id=<?= $myCommit->getIdCommit();?>" class="btn btn-warning">Modifier</a>
 <?php
 require_once(__DIR__ . "/partials/footer.view.php");
