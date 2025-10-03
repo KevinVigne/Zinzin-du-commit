@@ -12,6 +12,5 @@ $router->addRoute('/deconnexion', 'SessionController', 'logout');
 $router->addRoute('/ajoutCommit', 'CommitController', 'addCommit');
 $router->addRoute('/commit', 'CommitController', 'commit');
 $router->addRoute('/modifier', 'CommitController', 'editCommit');
-$router->addRoute('/commentaire',"CommitController",'addComment');
 
 $router->handleRequest();

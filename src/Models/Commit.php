@@ -55,7 +55,7 @@ class Commit
         }
 
     }
-
+    
     public function editCommit()
     {
         $pdo = Database::getConnection();
