@@ -74,7 +74,11 @@ abstract class AbstractController
                     $this->arrayError['commit'] = 'Merci de renseigner un texte correcte!';
                 }
                 break;
-
+            case 'comment':
+                if(!preg_match($regexText, $value)){
+                    $this->arrayError['comment'] = 'Merci de renseigner un texte correcte!';
+                }
+                break;
         }
     }
 
