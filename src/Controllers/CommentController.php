@@ -49,7 +49,7 @@ class CommentController extends AbstractController
     {
         if(isset($_POST['id'])){
             $id = htmlspecialchars($_POST['id']);
-            $comment = new Comment($id, null, null, null, null, null);
+            $comment = new Comment($id, null, null, null, null, null,null);
             $myComment = $comment->getCommentById();
 
             //Je veux que le commentaire existe et que ce soit la personne qui a créer le commentaire ou alors que ce soit un admin
