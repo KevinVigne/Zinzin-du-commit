@@ -1,3 +1,4 @@
+
 <?php
 require_once(__DIR__ . "/partials/head.view.php");
 ?>
@@ -46,25 +47,35 @@ require_once(__DIR__ . "/partials/head.view.php");
             {
                 ?>
                     <div class="card my-2">
-                    <div class="card-header">
-                        <?= $comment->getIdUser(); ?>
-                    </div>
-                    <div class="card-body">
-                        <figure>
-                        <blockquote class="blockquote">
-                            <p><?= $comment->getText(); ?></p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer">
-                            <!-- si tu a une date de mùodification tu l'affiche sinon tu affiche la date de création -->
-                            <?= $comment->getModificationDate() ? $comment->getModificationDate() : $comment->getCreationDate(); ?>
-                        </figcaption>
-                        </figure>
-                        <?php if($_SESSION['user'] && $_SESSION['user']['id_user'] === $comment->getIdUser()){
+                        <div class="card-header">
+                            <?= $comment->getIdUser(); ?>
+                        </div>
+                        <div class="card-body">
+                            <figure>
+                            <blockquote class="blockquote">
+                                <p><?= $comment->getText(); ?></p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                <!-- si tu a une date de mùodification tu l'affiche sinon tu affiche la date de création -->
+                                <?= $comment->getModificationDate() ? $comment->getModificationDate() : $comment->getCreationDate(); ?>
+                            </figcaption>
+                            </figure>
+                            <?php if(isset($_SESSION['user']) && $_SESSION['user']['id_user'] === $comment->getIdUser()){
+                                ?>
+                                <a class="btn btn-warning"  href="/modifCommentaire?id=<?= $comment->getIdComment() ?>">Modifier</a>
+                                <?php
+                            } 
+                            if((isset($_SESSION['user']) && $_SESSION['user']['id_user'] === $comment->getIdUser()) || isset($_SESSION['user']) && $_SESSION['user']['id_role'] === 1){
+                                ?>
+                                <form action="/supprimerCommentaire" method="POST">
+                                    <input type="hidden" name="id" value="<?= $comment->getIdComment() ?>">
+                                    <button type="submit" class="btn btn-danger my-3">Supprimer</button>
+                                </form>
+                                <?php
+                            }
                             ?>
-                            <a class="btn btn-warning"  href="/modifCommentaire?id=<?= $comment->getIdComment() ?>">Modifier</a>
-                            <?php
-                        } ?>
-                    </div>
+
+                        </div>
                     </div>
                 <?php
             }
